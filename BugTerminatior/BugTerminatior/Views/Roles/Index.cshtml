@@ -1,0 +1,35 @@
+﻿@model IEnumerable<BugTerminatior.Models.RolesViewModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>System Roles</h2>
+
+<p>
+    @Html.ActionLink("Add A Role", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.RoleName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        @Html.HiddenFor(modelItem => item.RolesId)
+        <td>
+            @Html.DisplayFor(modelItem => item.RoleName)
+        </td>
+        <td>
+            @Html.ActionLink("Assign Users", "AssignUsers", "UserRoles", new {  id = item.RolesId  }, null) |
+            @Html.ActionLink("View / Unassign", "UsersInRole", "UserRoles", new {  id = item.RolesId  }, null) |
+            @Html.ActionLink("Edit Role", "Edit", new {  id = item.RolesId }) |
+            @Html.ActionLink("Delete Role", "Delete", new {  id = item.RolesId })
+        </td>
+    </tr>
+}
+
+</table>

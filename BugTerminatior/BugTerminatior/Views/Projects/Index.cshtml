@@ -1,0 +1,47 @@
+﻿@model IEnumerable<BugTerminatior.Models.Project>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Project List</h2>
+@if (User.IsInRole("Adminsitrator"))
+    {
+        <p>
+            @Html.ActionLink("New Project", "Create")
+        </p>
+    }
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            
+            @if (User.IsInRole("Administrator"))
+	        {
+                
+                @Html.ActionLink("Assign Users", "AssignUsers", "ProjectUsers", new { id = item.Id }, null)  <content> | </content>
+                @Html.ActionLink("View / Unassign", "IsOnProject", "ProjectUsers", new { id = item.Id }, null) <content> | </content>
+                @Html.ActionLink("Edit Project", "Edit", new { id = item.Id })    <content> | </content>
+                @Html.ActionLink("Delete Project", "Delete", new { id = item.Id })
+            }
+            else
+            {
+                @Html.ActionLink("Assign Users", "AssignUsers", "ProjectUsers", new { id = item.Id }, null)  <content> | </content>
+                @Html.ActionLink("View / Unassign", "IsOnProject", "ProjectUsers", new { id = item.Id }, null)
+            }
+        </td>
+
+    </tr>
+}
+
+</table>

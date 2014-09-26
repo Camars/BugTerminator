@@ -1,0 +1,145 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Bug Terminator</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="~/Home/Index"><img src="~/images/terminator.png" style="margin-top:auto" border="0" width="30" height="40" alt="Link to this page"></a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("About", "About", "Home")</li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+
+                        if (User.IsInRole("Administrator"))
+                        {
+                            //show admin menus
+                            <li class="dropdown">
+                                <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown"> Admin</a>
+                                <ul class="dropdown-menu dropdown-menu left">
+                                    <li>@Html.ActionLink("Users", "Index", "BTUsers") </li>
+                                    <li>@Html.ActionLink("Roles", "Index", "Roles") </li>
+                                    <li>@Html.ActionLink("Projects", "Index", "Projects") </li>
+                                    <li>@Html.ActionLink("Tickets", "Index", "Tickets", new { id = -1 }, null) </li>
+                                    <li>@Html.ActionLink("Ticket Priorities", "Index", "TicketPriorities") </li>
+                                    <li>@Html.ActionLink("Ticket Statuses", "Index", "TicketStatus") </li>
+                                    <li>@Html.ActionLink("Ticket Types", "Index", "TicketTypes") </li>
+                                </ul>
+                            </li>
+                        }
+
+                        if (User.IsInRole("Developer"))
+                        {
+                            //show dev menus
+                            <li class="dropdown">
+                                <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown"> Developer</a>
+                                <ul class="dropdown-menu dropdown-menu left">
+                                    <li>@Html.ActionLink("View Projects", "Index", "Projects") </li>
+                                    <li>@Html.ActionLink("View Tickets", "Index", "Tickets", new { id = -1 }, null) </li>
+                                </ul>
+                            </li>
+                        }
+
+                        if (User.IsInRole("Submitter"))
+                        {
+                            //show submitter menus
+                            <li class="dropdown">
+                                <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown"> Submitter</a>
+                                <ul class="dropdown-menu dropdown-menu left">
+                                    <li>@Html.ActionLink("Track Tickets", "Index", "Tickets", new { id = -1 }, null) </li>
+                                    <li>@Html.ActionLink("Submit A Ticket", "Create", "Ticket") </li>
+                                </ul>
+                            </li>
+                        }
+
+
+                    }
+                </ul>
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
+
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="col">
+                    <h4>Contact us</h4>
+                    <ul>
+                        <li>5th Avenue, New York - United States</li>
+                        <li>Phone: +10 724 1234 567 | Fax: +10 724 1234 567 </li>
+                        <li>Email: <a href="mailto:hello@example.com" title="Email Us">hello@example.com</a></li>
+                        <li>Skype: <a href="skype:my.business?call" title="Skype us">my-business</a></li>
+                        <li>Creating great templates is our passion</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="col">
+                    <h4>Mailing list</h4>
+                    <p>Sign up if you would like to receive occasional treats from us.</p>
+                    <form class="form-inline">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Your email address...">
+                            <span class="input-group-btn">
+                                <button class="btn btn-two" type="button">Go!</button>
+                            </span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="col">
+                    <h4>About us</h4>
+                    <p>
+                        Boomerang Bootstrap Template is made with love and passion for your own business.
+                        <br><br>
+                        <a href="#" class="btn btn-two">Try it now!</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="row">
+            <div class="col-lg-9 copyright">
+                2013 © Web Pixels. All rights reserverd.
+                <a href="#">Terms of use</a> |
+                <a href="#">Privacy policy</a>
+            </div>
+            <div class="col-lg-3 footer-logo">
+
+            </div>
+        </div>
+    </div>
+</footer>

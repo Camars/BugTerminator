@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="6d37f45a12a84cd5ac6b22738d9eee7d" Name="Diagram1">
+        <EntityTypeShape EntityType="BugTrackerModel.BTUser" Width="1.5" PointX="0.75" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BugTrackerModel.Project" Width="1.5" PointX="3.75" PointY="17.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BugTrackerModel.ProjectUser" Width="1.5" PointX="3" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BugTrackerModel.TicketAttachment" Width="1.5" PointX="3" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BugTrackerModel.TicketComment" Width="1.5" PointX="3" PointY="13.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BugTrackerModel.TicketHistory" Width="1.5" PointX="6" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BugTrackerModel.TicketNotification" Width="1.5" PointX="6" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BugTrackerModel.TicketPriority" Width="1.5" PointX="3.75" PointY="20.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BugTrackerModel.Ticket" Width="1.5" PointX="6" PointY="14.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BugTrackerModel.TicketStatus" Width="1.5" PointX="3.75" PointY="22.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BugTrackerModel.TicketType" Width="1.5" PointX="3.75" PointY="24.875" IsExpanded="true" />
+        <AssociationConnector Association="BugTrackerModel.FK_ProjectUsers_BTUsers" ManuallyRouted="false" />
+        <AssociationConnector Association="BugTrackerModel.FK_TicketAttachments_BTUsers" ManuallyRouted="false" />
+        <AssociationConnector Association="BugTrackerModel.FK_TicketComments_BTUsers" ManuallyRouted="false" />
+        <AssociationConnector Association="BugTrackerModel.FK_TicketHistories_BTUsers" ManuallyRouted="false" />
+        <AssociationConnector Association="BugTrackerModel.FK_TicketNotifications_BTUsers" ManuallyRouted="false" />
+        <AssociationConnector Association="BugTrackerModel.FK_Tickets_BTUsers2" ManuallyRouted="false" />
+        <AssociationConnector Association="BugTrackerModel.FK_Tickets_BTUsers3" ManuallyRouted="false" />
+        <AssociationConnector Association="BugTrackerModel.FK_ProjectUsers_Projects" ManuallyRouted="false" />
+        <AssociationConnector Association="BugTrackerModel.FK_Tickets_Projects" ManuallyRouted="false" />
+        <AssociationConnector Association="BugTrackerModel.FK_TicketAttachments_Tickets" ManuallyRouted="false" />
+        <AssociationConnector Association="BugTrackerModel.FK_TicketComments_Tickets" ManuallyRouted="false" />
+        <AssociationConnector Association="BugTrackerModel.FK_TicketHistories_Tickets" ManuallyRouted="false" />
+        <AssociationConnector Association="BugTrackerModel.FK_TicketNotifications_Tickets" ManuallyRouted="false" />
+        <AssociationConnector Association="BugTrackerModel.FK_Tickets_TicketPriorities" ManuallyRouted="false" />
+        <AssociationConnector Association="BugTrackerModel.FK_Tickets_TicketStatuses" ManuallyRouted="false" />
+        <AssociationConnector Association="BugTrackerModel.FK_Tickets_TicketTypes" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
